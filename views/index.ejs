@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Domain Name</title>
+  <!-- Main CSS File -->
+  <link href="/css/output.css" rel="stylesheet" />
+  <!-- Google Fonts - Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+</head>
+
+<body class="font-montserrat">
+  <div class="px-4 sm:px-6 lg:px-8 bg-main">
+    <div class="min-h-screen">
+      <h1 class="pt-40 text-5xl text-white text-center font-bold">Find registered domain names</h1>
+      <form class="w-4/5 mt-36 mx-auto pl-5 bg-white flex justify-between items-center gap-6" action="/get-domains"
+        method="post">
+        <div class="icon flex-none">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <input class="flex-1" type="text" name="domain" placeholder="Keyword" style="outline: none;" />
+        <button class="m-0.5 py-5 px-8 flex-none bg-main text-white font-semibold " type="submit">Search</button>
+      </form>
+      <% if (domains.length!==0) { %>
+        <div class="domains mx-auto w-4/5 mt-4 bg-white p-4">
+          <ul>
+            <% domains.forEach(domain=> { %>
+              <li class="domain">
+                <%= domain %>
+              </li>
+              <% }); %>
+          </ul>
+        </div>
+        <% } %>
+    </div>
+  </div>
+</body>
+
+</html>
